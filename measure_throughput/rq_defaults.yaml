@@ -1,0 +1,112 @@
+rqtransformer:
+  type: rq-transformer
+  block_size: null
+
+  embed_dim: null
+  input_embed_dim: 256
+  shared_tok_emb: true
+  shared_cls_emb: true
+
+  input_emb_vqvae: true
+  head_emb_vqvae: true
+  cumsum_depth_ctx: true
+
+  vocab_size_cond: 1000
+  block_size_cond: 1
+
+  body:
+    n_layer: null
+    block:
+      n_head: null
+  head:
+    n_layer: null
+    block:
+      n_head: null
+
+rqvae_f32:
+  type: rq-vae
+  code_hier: 1
+  hparams:
+    bottleneck_type: rq
+    embed_dim: 256
+    n_embed: null
+    latent_shape: [8, 8, 256]
+    code_shape: null
+    shared_codebook: true
+    decay: 0.99
+    restart_unused_codes: true
+
+    loss_type: mse
+    latent_loss_weight: 0.25
+
+  ddconfig:
+    double_z: false
+    z_channels: 256
+    resolution: 256
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult: [ 1, 1, 2, 2, 4, 4 ]
+    num_res_blocks: 2
+    attn_resolutions: [ 8 ]
+    dropout: 0.00
+
+rqvae_f16:
+  type: rq-vae
+  code_hier: 1
+  hparams:
+    bottleneck_type: rq
+    embed_dim: 256
+    n_embed: null
+    latent_shape: [16, 16, 256]
+    code_shape: null
+    shared_codebook: true
+    decay: 0.99
+    restart_unused_codes: true
+    use_padding_idx: false
+    masked_dropout: 0.0
+
+    loss_type: mse
+    latent_loss_weight: 0.25
+
+  ddconfig:
+    double_z: false
+    z_channels: 256
+    resolution: 256
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult: [ 1, 1, 2, 2, 4 ]
+    num_res_blocks: 2
+    attn_resolutions: [ 16 ]
+    dropout: 0.00
+
+rqvae_f8:
+  type: rq-vae
+  code_hier: 1
+  hparams:
+    bottleneck_type: rq
+    embed_dim: 256
+    n_embed: null
+    latent_shape: [32, 32, 256]
+    code_shape: null
+    shared_codebook: true
+    decay: 0.99
+    restart_unused_codes: true
+    use_padding_idx: false
+    masked_dropout: 0.0
+
+    loss_type: mse
+    latent_loss_weight: 0.25
+
+  ddconfig:
+    double_z: false
+    z_channels: 256
+    resolution: 256
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult: [ 1, 2, 2, 4 ]
+    num_res_blocks: 2
+    attn_resolutions: [ 32 ]
+    dropout: 0.00

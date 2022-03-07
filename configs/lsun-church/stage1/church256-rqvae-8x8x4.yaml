@@ -1,0 +1,68 @@
+dataset:
+  type: LSUN-church
+  transforms:
+    type: LSUN-church
+
+arch:
+  type: rq-vae
+  code_hier: 1
+  hparams:
+    bottleneck_type: rq
+    embed_dim: 256
+    n_embed: 16384
+    latent_shape: [ 8, 8, 256 ]
+    code_shape: [ 8, 8, 4 ]
+    shared_codebook: true
+    decay: 0.99
+    restart_unused_codes: true
+
+    loss_type: mse
+    latent_loss_weight: 0.25
+  ddconfig:
+    double_z: false
+    z_channels: 256
+    resolution: 256
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult: [ 1, 1, 2, 2, 4, 4 ]
+    num_res_blocks: 2
+    attn_resolutions: [ 8 ]
+    dropout: 0.00
+  checkpointing: true
+
+
+optimizer:
+  type: adam
+  init_lr: 4.0e-5
+  weight_decay: 0.0
+  betas: [0.5, 0.9]
+  warmup:
+    epoch: 0
+    multiplier: 1
+    buffer_epoch: 0
+    min_lr: 4.0e-5
+    mode: fix
+
+
+experiment:
+  batch_size: 32
+  epochs: 1
+  save_ckpt_freq: 1
+  test_freq: 1
+
+gan:
+  disc:
+    arch:
+      in_channels: 3
+      num_layers: 2
+      use_actnorm: False
+      ndf: 64
+      spectral_norm: False
+
+  loss:
+    disc_loss: hinge
+    gen_loss: vanilla
+    disc_weight: 0.75
+    perceptual_weight: 1.0
+    disc_start: 0

@@ -1,0 +1,66 @@
+dataset:
+  dataset: cc3m
+  txt_tok_name: bpe16k_huggingface
+  vocab_size_txt: 16384
+  vocab_size: 16384  
+  image_resolution: 256
+  context_length: 32
+  transforms: dalle-vqvae
+  bpe_dropout: 0.1
+
+arch:
+  type: rq-transformer
+  block_size: [ 8, 8, 4 ]
+
+  embed_dim: 1280
+  input_embed_dim: 256
+  shared_tok_emb: true
+  shared_cls_emb: true
+
+  input_emb_vqvae: true
+  head_emb_vqvae: true
+  cumsum_depth_ctx: true
+
+  vocab_size_cond: 16384
+  block_size_cond: 32
+
+  body:
+    n_layer: 26
+    block:
+      n_head: 20
+  head:
+    n_layer: 4
+    block:
+      n_head: 20
+
+loss:
+  type: soft_target_cross_entropy
+  stochastic_codes: true
+  temp: 0.5
+  txt_weight: 0.1
+  img_weight: 0.9
+
+optimizer:
+  type: adamW
+  init_lr: 0.0005
+  weight_decay: 0.0001
+  betas: [0.9, 0.95]
+  warmup:
+    epoch: 0
+    multiplier: 1
+    buffer_epoch: 0
+    min_lr: 0.0
+    mode: fix
+    start_from_zero: True
+  max_gn: 1.0
+
+experiment:
+  amp: True
+  batch_size: 32
+  total_batch_size: 2048
+  epochs: 100
+  save_ckpt_freq: 1
+  test_freq: 1
+  sample:
+    top_k: 16384
+    top_p: 0.7
