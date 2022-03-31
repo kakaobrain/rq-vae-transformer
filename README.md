@@ -168,7 +168,7 @@ In this repository, the quantitative results in the paper can be reproduced by t
 - Download the feature statistics of datasets as follows:
     ```bash
     cd assets
-    wget https://arena.kakaocdn.net/brainrepo/etc/RQVAE/85114e40c0b49622ed92b1ab925e9785/fid_stats.tar.gz
+    wget https://arena.kakaocdn.net/brainrepo/etc/RQVAE/8b325b628f49bf60a3094fcf9419398c/fid_stats.tar.gz
     tar -zxvf fid_stats.tar.gz
     ```
 
