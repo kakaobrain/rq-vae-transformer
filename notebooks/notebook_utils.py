@@ -52,16 +52,16 @@ class TextEncoder:
         return self.encode(texts)
     
 
-def load_model(path, ema=False):
+def load_model(path, ema=False, map_location='cpu'):
     model_config = os.path.join(os.path.dirname(path), 'config.yaml')
     config = load_config(model_config)
     config.arch = augment_arch_defaults(config.arch)
 
     model, _ = create_model(config.arch, ema=False)
     if ema:
-        ckpt = torch.load(path, map_location='cpu')['state_dict_ema']
+        ckpt = torch.load(path, map_location=map_location)['state_dict_ema']
     else:
-        ckpt = torch.load(path, map_location='cpu')['state_dict']
+        ckpt = torch.load(path, map_location=map_location)['state_dict']
     model.load_state_dict(ckpt)
 
     return model, config
