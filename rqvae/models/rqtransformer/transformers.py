@@ -315,19 +315,29 @@ class RQTransformer(Stage2Model):
             top_k_list = [self.vocab_size[i] for i in range(D)]
         elif isinstance(top_k, int):
             top_k_list = [min(top_k, self.vocab_size[i]) for i in range(D)]
-        elif len(top_k) == 1:
-            top_k_list = [min(top_k[0], self.vocab_size[i]) for i in range(D)]
+        elif isinstance(top_k, (list, tuple)):
+            if len(top_k) == 1:
+                top_k_list = [min(top_k[0], self.vocab_size[i]) for i in range(D)]
+            elif len(top_k) == D:
+                top_k_list = [min(top_k[i], self.vocab_size[i]) for i in range(D)]
+            else:
+                raise AttributeError('top_k size is miss matched input:%d, expected:%d', len(top_k), D)
         else:
-            top_k_list = [min(top_k[i], self.vocab_size[i]) for i in range(D)]
+            raise AttributeError('top_k type(int) is miss matched')
 
         if top_p is None:
             top_p_list = [1.0 for _ in range(D)]
         elif isinstance(top_p, float):
             top_p_list = [min(top_p, 1.0) for _ in range(D)]
-        elif len(top_p) == 1:
-            top_p_list = [min(top_p[0], 1.0) for _ in range(D)]
+        elif isinstance(top_p, (list, tuple)): 
+            if len(top_p) == 1:
+                top_p_list = [min(top_p[0], 1.0) for _ in range(D)]
+            elif len(top_p) == D:
+                top_p_list = [min(top_p[i], 1.0) for i in range(D)]
+            else:
+                raise AttributeError('top_p size is miss matched input:%d, expected:%d', len(top_p), D)
         else:
-            top_p_list = [min(top_p[i], 1.0) for i in range(D)]
+            raise AttributeError('top_p type(float) is miss matched')
 
         xs = partial_sample.clone()
         assert xs.shape[1:] == torch.Size([H, W, D])
