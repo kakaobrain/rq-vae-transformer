@@ -237,10 +237,11 @@ python -m measure_throughput f=32 d=4 c=16384 model=huge batch_size=500
 
 ## BibTex
 ```
-@article{lee2022autoregressive,
+@inproceedings{lee2022autoregressive,
   title={Autoregressive Image Generation using Residual Quantization},
   author={Lee, Doyup and Kim, Chiheon and Kim, Saehoon and Cho, Minsu and Han, Wook-Shin},
-  journal={arXiv preprint arXiv:2203.01941},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={11523--11532},
   year={2022}
 }
 ```
