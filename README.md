@@ -35,16 +35,16 @@ We provide pretrained checkpoints of RQ-VAEs and RQ-Transformers to reproduce th
 
 | Dataset        | RQ-VAE & RQ-Transformer | # params of RQ-Transformer |      FID     |
 |----------------|:-----------------------:|:--------:|:------------:|
-| FFHQ           |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/d47570aeff6ba300735606a806f54663/ffhq.tar.gz)          |   355M   |     10.38    |
-| LSUN-Church    |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/deeb3e0ac6e09923754e3e594ede7b01/church.tar.gz)          |   370M   |     7.45     |
-| LSUN-Cat       |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/92b4e6a9ace09c9ab8ff9d3b3e688367/cat.tar.gz)          |   612M   |     8.64     |
-| LSUN-Bedroom   |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/06b72c164cd2fe64fc8ebd6b42b0040f/bedroom.tar.gz)          |   612M   |     3.04     |
-| ImageNet (cIN) |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/7518a004fe39120fcffbba76005dc6c3/imagenet_480M.tar.gz)          |   480M   |     15.72    |
-| ImageNet (cIN) |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/dcd39292319104da5577dec3956bfdcc/imagenet_821M.tar.gz)          |   821M   |     13.11    |
-| ImageNet (cIN) |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/f5cf4e5f3f0b5088d52cbb5e85c1077f/imagenet_1.4B.tar.gz)          |   1.4B   | 11.56 (4.45) |
-| ImageNet (cIN) |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/6714b47bb9382076923590eff08b1ee5/imagenet_1.4B_rqvae_50e.tar.gz)          |   1.4B   |  8.71 (3.89) |
-| ImageNet (cIN) |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/e1ee2fef2928f7fd31f53a8348f08b88/imagenet_3.8B_rqvae_50e.tar.gz)          |   3.8B   |  7.55 (3.80) |
-| CC-3M          |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/dcd95e8f08408e113aab6451fae895f5/cc3m.tar.gz)          |   654M   |     12.33    |
+| FFHQ           |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/d47570aeff6ba300735606a806f54663/ffhq.tar.gz)          |   355M   |     10.38    |
+| LSUN-Church    |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/deeb3e0ac6e09923754e3e594ede7b01/church.tar.gz)          |   370M   |     7.45     |
+| LSUN-Cat       |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/92b4e6a9ace09c9ab8ff9d3b3e688367/cat.tar.gz)          |   612M   |     8.64     |
+| LSUN-Bedroom   |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/06b72c164cd2fe64fc8ebd6b42b0040f/bedroom.tar.gz)          |   612M   |     3.04     |
+| ImageNet (cIN) |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/7518a004fe39120fcffbba76005dc6c3/imagenet_480M.tar.gz)          |   480M   |     15.72    |
+| ImageNet (cIN) |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/dcd39292319104da5577dec3956bfdcc/imagenet_821M.tar.gz)          |   821M   |     13.11    |
+| ImageNet (cIN) |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/f5cf4e5f3f0b5088d52cbb5e85c1077f/imagenet_1.4B.tar.gz)          |   1.4B   | 11.56 (4.45) |
+| ImageNet (cIN) |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/6714b47bb9382076923590eff08b1ee5/imagenet_1.4B_rqvae_50e.tar.gz)          |   1.4B   |  8.71 (3.89) |
+| ImageNet (cIN) |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/e1ee2fef2928f7fd31f53a8348f08b88/imagenet_3.8B_rqvae_50e.tar.gz)          |   3.8B   |  7.55 (3.80) |
+| CC-3M          |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/dcd95e8f08408e113aab6451fae895f5/cc3m.tar.gz)          |   654M   |     12.33    |
 
 FID scores above are measured based on original samples and generated images, and the scores in brackets are measured using 5% rejection sampling via pretrained ResNet-101. We do not provide the pipeline of rejection sampling in this repository.  
 
@@ -57,7 +57,7 @@ We also provide the pretrained checkpoint of **large-scale** RQ-Transformer for 
 
 |           Dataset.           | RQ-VAE & RQ-Transformer | # params |
 |------------------------------|:-----------------------:|:--------:|
-| CC-3M + CC-12M + YFCC-subset |           [link](https://arena.kakaocdn.net/brainrepo/models/RQVAE/3a8429cd7ec0e0f2b66fca94804c79d5/cc3m_cc12m_yfcc.tar.gz)          |   3.9B   |
+| CC-3M + CC-12M + YFCC-subset |           [link](https://twg.kakaocdn.net/brainrepo/models/RQVAE/3a8429cd7ec0e0f2b66fca94804c79d5/cc3m_cc12m_yfcc.tar.gz)          |   3.9B   |
 
 #### Evaluation of Large-Scale RQ-Transformer on MS-COCO
 In this repository, we evaluate the pretrained RQ-Transformer with 3.9B parameters on MS-COCO.  According to the evaluation protocol of [DALL-Eval](https://arxiv.org/abs/2202.04053), we randomly select 30K text captions in `val2014` split of MS-COCO and generate 256x256 images using the selected captions. We use (1024, 0.95) for top-(k, p) sampling, and FID scores of other models are from Table 2 in [DALL-Eval](https://arxiv.org/abs/2202.04053) paper. 
@@ -168,7 +168,7 @@ In this repository, the quantitative results in the paper can be reproduced by t
 - Download the feature statistics of datasets as follows:
     ```bash
     cd assets
-    wget https://arena.kakaocdn.net/brainrepo/etc/RQVAE/8b325b628f49bf60a3094fcf9419398c/fid_stats.tar.gz
+    wget https://twg.kakaocdn.net/brainrepo/etc/RQVAE/8b325b628f49bf60a3094fcf9419398c/fid_stats.tar.gz
     tar -zxvf fid_stats.tar.gz
     ```
 

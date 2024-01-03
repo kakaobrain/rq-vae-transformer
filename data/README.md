@@ -66,6 +66,6 @@ unzip val2014zip
 - To download MS-COCO annotations
 ```bash
 cd $COCO_ROOT_DIR/annotations
-wget https://arena.kakaocdn.net/brainrepo/etc/RQVAE/54599b4b2286fdc2252d927aa3fd55eb/captions_val2014_30K_samples.json
+wget https://twg.kakaocdn.net/brainrepo/etc/RQVAE/54599b4b2286fdc2252d927aa3fd55eb/captions_val2014_30K_samples.json
 ```
 
