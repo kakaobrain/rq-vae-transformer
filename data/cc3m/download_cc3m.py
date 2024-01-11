@@ -94,7 +94,7 @@ with Pool(128) as p:
 okay_count = 0
 print(f"Write (caption filename) tsv files into {args.split}_list.txt")
 with open(os.path.join(current_dir, f'{args.split}_list.txt'), 'w') as f:
-    with open(os.path.join(current_dir, f'{args.split}_error_list.txt', 'w')) as fnot:
+    with open(os.path.join(current_dir, f'{args.split}_error_list.txt'), 'w') as fnot:
         for retcode, text, imgpath in tqdm(retcodes, total=len(retcodes)):
             if retcode == 0:
                 okay_count += 1
